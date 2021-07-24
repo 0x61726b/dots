@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 set -x PATH $PATH /usr/local/bin
+set -x PATH $PATH /Users/ark/.nvm/versions/node/v14.15.0/bin
 fish_vi_key_bindings default
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
