@@ -9,11 +9,14 @@ EOF
 set completeopt=menuone,noselect
 
 lua << EOF
--- gopls setup
-require('lspconfig').gopls.setup{}
 -- lspsaga setup 
 -- provides some fancy stuff
-require('lspsaga').init_lsp_saga()
+require('lspsaga').init_lsp_saga{
+   finder_action_keys = {
+      open = 'o', vsplit = 'v',split = 's',quit = 'q',scroll_down = '<C-d>', scroll_up = '<C-u>' -- quit can be a table
+   },
+   max_preview_lines = 30
+}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -52,7 +55,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable the following language servers
-local servers = { 'gopls' }
+local servers = { 'gopls', 'denols' }
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     -- You will probably want to add a custom on_attach here to locally map keybinds to buffers with an active client

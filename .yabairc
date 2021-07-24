@@ -24,7 +24,7 @@ yabai -m config normal_window_opacity 0
 yabai -m rule --add app=".*Skype.*" space=4
 yabai -m rule --add app=".*Slack.*" space=4
 yabai -m rule --add app=".*Discord.*" space=4
-yabai -m rule --add app=".*Alacritty.*" space=2
+yabai -m rule --add app=".*Alacritty.*" space=1
 yabai -m rule --add app=".*Chrome.*" space=3
 yabai -m rule --add app=".*Telegram.*" space=4
 yabai -m rule --add app=".*Spotify.*" space=6

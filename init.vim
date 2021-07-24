@@ -8,7 +8,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Adds gcc to comment/comment out stuff
 Plug 'tpope/vim-commentary'
 " Fancy Bottom bar
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline' " this causes some slow startup
 " Shows register and values in it on the right side (very nice)
 Plug 'junegunn/vim-peekaboo'
 " Fuzzing
@@ -31,6 +31,8 @@ Plug 'psliwka/vim-smoothie'
 " Plug 'preservim/tagbar'
 " Git gutter
 Plug 'airblade/vim-gitgutter'
+
+Plug 'christoomey/vim-tmux-navigator'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -65,3 +67,5 @@ source ~/.config/nvim/general.vim
 
 " Key Remapping configs
 source ~/.config/nvim/keys.vim
+
+source ~/.config/nvim/airline.vim

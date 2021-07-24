@@ -5,6 +5,7 @@ cp ~/.config/nvim/plugin_conf.vim plugin_conf.vim
 cp ~/.config/nvim/lsp.vim lsp.vim
 cp ~/.config/nvim/theming.vim theming.vim
 cp ~/.config/nvim/general.vim general.vim
+cp ~/.config/nvim/airline.vim airline.vim
 cp ~/.config/nvim/keys.vim keys.vim
 cp ~/.alacritty.yml .alacritty.yml
 cp ~/.skhdrc .skhdrc

@@ -17,10 +17,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>r :Rg<CR>
 
-" Forward and Backward while pressing Cmd
-nnoremap [ <C-o>
-nnoremap ] <C-i>
-
 " Tagbar Toggle
 nmap <F8> :TagbarToggle<CR>
 " NvimTree Toggle
@@ -43,3 +39,15 @@ nnoremap <silent>    ª :BufferLast<CR>
 " Close buffer
 nnoremap <silent>    ç :BufferClose<CR>
 
+" lspsaga
+" when the finder is open
+" o: open the selection
+" s: vertical split
+" i: split
+" q: quit
+" <c-f>: scroll down
+" <c-b>: scroll up
+nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+
+nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>

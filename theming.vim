@@ -21,3 +21,5 @@ set termguicolors
 let g:one_allow_italics = 1
 colorscheme one
 set background=dark
+
+let g:airline_theme='dark'
