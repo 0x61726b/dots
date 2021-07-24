@@ -2,6 +2,7 @@ mkdir -p fish
 mkdir -p fish/conf.d
 cp ~/.config/nvim/init.vim init.vim
 cp ~/.config/nvim/plugin_conf.vim plugin_conf.vim
+cp ~/.config/nvim/lsp.vim lsp.vim
 cp ~/.config/nvim/theming.vim theming.vim
 cp ~/.config/nvim/general.vim general.vim
 cp ~/.config/nvim/keys.vim keys.vim

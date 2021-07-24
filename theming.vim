@@ -1,4 +1,4 @@
-" set termguicolors
+set termguicolors
 "
 " Theme and Styling
 " Material
@@ -17,3 +17,7 @@
 " colorscheme neon
 " let g:neon_style = 'dark'
 
+" vim-one
+let g:one_allow_italics = 1
+colorscheme one
+set background=dark

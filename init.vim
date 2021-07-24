@@ -31,13 +31,28 @@ Plug 'psliwka/vim-smoothie'
 " Plug 'preservim/tagbar'
 " Git gutter
 Plug 'airblade/vim-gitgutter'
-" " Themes and Icons
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+
+" Code Completion / Snippets / Syntax Highlighting
+Plug 'hrsh7th/nvim-compe'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Themes
+Plug 'rakr/vim-one'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " Plug 'savq/melange'
 " Plug 'rafamadriz/neon'
 
+
 call plug#end()
+
+" LSP config
+source ~/.config/nvim/lsp.vim
 
 " Plugin options
 source ~/.config/nvim/plugin_conf.vim
