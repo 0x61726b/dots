@@ -24,12 +24,44 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'psliwka/vim-smoothie'
+Plug 'preservim/tagbar'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'airblade/vim-gitgutter'
+" Themes
+Plug 'savq/melange'
+Plug 'rafamadriz/neon'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
 
 call plug#end()
 
-" TokyoNight as the color scheme
-let g:tokyonight_style = "night"
-colorscheme tokyonight
+set termguicolors
+
+
+let g:coc_node_path = '/Users/ark/.nvm/versions/node/v14.15.0/bin/node'
+
+" Theme and Styling
+" Material
+" colorscheme material
+" let g:material_terminal_italics = 1
+" let g:material_theme_style = 'darker'
+" Tokyonight
+" let g:tokyonight_style = 'night' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" colorscheme tokyonight
+
+" Melange
+" colorscheme melange
+
+" Neon
+colorscheme neon
+let g:neon_style = 'dark'
+
+" - Airline
+" let g:airline_theme = 'material'
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = ''
 
 " Automatically load plugins
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -38,28 +70,18 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set termguicolors " this variable must be enabled for colors to be applied properly
-" Tabs configuration
-" set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+" Automatically open TagBar
+autocmd VimEnter * nested :TagbarOpen
 
-" a list of groups can be found at `:help nvim_tree_highlight`
+
 highlight NvimTreeFolderIcon guibg=blue
 
-" NERDTree
-" Automatically start NERDTree when Vim starts
-" autocmd VimEnter * NERDTree | wincmd p
-
-" Automatically close NERDTree when NERDTree is the last window
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-let g:airline_powerline_fonts = 1
-
-
-" Config
+" Various Configs
 set encoding=utf-8
 
 " See line numbers
-set number
+set relativenumber
+
 " Change the leader key to SPACE
 let mapleader=" "
 
@@ -75,16 +97,18 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Fzf Search in All Files and Search Files
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>r :Rg<CR>
-
-" Some shortcuts
-" nnoremap <leader>nt :NERDTreeToggle<CR>
-" nnoremap <leader>nf :NERDTreeFocus<CR>
 
 " Forward and Backward while pressing Cmd
 nnoremap [ <C-o>
 nnoremap ] <C-i>
+
+" Tagbar Toggle
+nmap <F8> :TagbarToggle<CR>
+" NvimTree Toggle
+nnoremap <C-n> :NvimTreeToggle<CR>
 
 " Tabs keybindings
 " Move to previous/next
@@ -270,10 +294,14 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+lua <<EOF
+saga.init_lsp_saga()
+EOF
+
 " Syntax Highlighting
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"go", "bash", "c_sharp", "cmake", "cpp", "css", "fish", "html", "java", "json", "kotlin", "lua", "python", "regex", "ruby", "rust", "scss", "toml", "tsx", "yaml"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"go", "bash", "c_sharp", "javascript", "cmake", "cpp", "css", "fish", "html", "java", "json", "kotlin", "lua", "python", "regex", "ruby", "rust", "scss", "toml", "tsx", "yaml"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
     additional_vim_regex_highlighting = false,
@@ -367,7 +395,4 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 
-nnoremap <C-n> :NvimTreeToggle<CR>
-" nnoremap <leader>r :NvimTreeRefresh<CR>
-" nnoremap <leader>tn :NvimTreeFindFile<CR>
 
