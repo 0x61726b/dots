@@ -21,10 +21,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 " Changes CWD to project root
 Plug 'airblade/vim-rooter'
-" Start screen
-Plug 'mhinz/vim-startify'
-" Session Manager
-Plug 'tpope/vim-obsession'
 " Smooth scrolling
 Plug 'psliwka/vim-smoothie'
 " Tagbar
@@ -32,7 +28,11 @@ Plug 'psliwka/vim-smoothie'
 " Git gutter
 Plug 'airblade/vim-gitgutter'
 
+" Seamless integration with tmux pane switching and vim splits
 Plug 'christoomey/vim-tmux-navigator'
+
+" Highlights the yanked region
+Plug 'machakann/vim-highlightedyank'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -42,6 +42,21 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" An informative popup of keybindings i guess?
+" Plug 'folke/which-key.nvim'
+"
+" Dashboard that provides some nice stuff
+Plug 'glepnir/dashboard-nvim'
+
+" git-blame like visual studio code
+Plug 'APZelos/blamer.nvim'
+
+" git diff
+Plug 'sindrets/diffview.nvim'
+
+" Distraction free text editing!
+Plug 'Pocco81/TrueZen.nvim'
 
 " Themes
 Plug 'rakr/vim-one'

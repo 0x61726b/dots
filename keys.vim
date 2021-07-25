@@ -13,9 +13,23 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <silent><leader>k :resize +5<CR>
+nnoremap <silent><leader>j :resize -5<CR>
+nnoremap <silent><leader>h :vertical resize +5<CR>
+nnoremap <silent><leader>l :vertical resize -5<CR>
+
 " Fzf Search in All Files and Search Files
-nnoremap <leader>t :Files<CR>
-nnoremap <leader>r :Rg<CR>
+" nnoremap <leader>t :Files<CR>
+" nnoremap <leader>r :Rg<CR>
+
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
+nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
+nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
+nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
+nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
+nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 
 " Tagbar Toggle
 nmap <F8> :TagbarToggle<CR>
