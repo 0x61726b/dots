@@ -37,6 +37,7 @@ Plug 'machakann/vim-highlightedyank'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'scalameta/nvim-metals'
 
 " Code Completion / Snippets / Syntax Highlighting
 Plug 'hrsh7th/nvim-compe'

@@ -1,3 +1,8 @@
+augroup lsp
+  au!
+  au FileType scala,sbt lua require("metals").initialize_or_attach({})
+augroup end
+
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -55,14 +60,17 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable the following language servers
-local servers = { 'gopls', 'denols' }
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    -- You will probably want to add a custom on_attach here to locally map keybinds to buffers with an active client
+local servers = { 'gopls', 'denols'}
+for _, lsp in ipairs(servers) do require('lspconfig')[lsp].setup { -- You will probably want to add a custom on_attach here to locally map keybinds to buffers with an active client
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+
+require'lspconfig'.java_language_server.setup{
+cmd = {'/Users/ark/dev/java-language-server/dist/lang_server_mac.sh'}
+}
+
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noinsert'
@@ -132,5 +140,7 @@ vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true 
 vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
 vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
 EOF
+
+let g:lsc_server_commands = {'java': '/Users/ark/dev/java-language-server/dist/lang_server_mac.sh'}
 
 
