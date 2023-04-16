@@ -7,4 +7,5 @@ fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
 
 fish_vi_key_bindings
+fish_user_key_bindings
 zoxide init fish | source
